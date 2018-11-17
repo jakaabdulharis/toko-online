@@ -1,4 +1,3 @@
-
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require("path");
@@ -9,6 +8,7 @@ var expressValidator = require('express-validator');
 
 // Initial App
 var app = express();
+
 
 app.use(session({
   secret: 'keyboard cat',
@@ -50,6 +50,10 @@ app.set("view engine", "ejs");
 // Setup public folder
 app.use(express.static(path.join(__dirname, "public")));
 
+// Setup Global errors variable
+app.locals.errors = null;
+
+
 // Setup Index
 // app.get('/', function(req,res){
 //   res.send("Ini adalah index ya Wakwa w")
@@ -59,15 +63,12 @@ app.use(express.static(path.join(__dirname, "public")));
 var pages = require('./routes/pages.js')
 var adminPages = require('./routes/admin_pages.js');
 app.use('/', pages);
-app.use('/admin', adminPages);
+app.use('/admin/pages', adminPages);
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
-app.use(bodyParser.json())
-
-
+app.use(bodyParser.json());
 
 
 // Srtup Server
