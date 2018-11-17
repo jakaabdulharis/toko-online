@@ -12,6 +12,11 @@ app.set("view engine", "ejs");
 // Setup public folder
 app.use(express.static(path.join(__dirname, "public")));
 
+// Setup Index
+app.get('/', function(req,res){
+  res.send("Ini adalah index ya Wakwaw")
+});
+
 
 // Srtup Server
 var port = 3000;
