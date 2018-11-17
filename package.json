@@ -1,0 +1,11 @@
+{
+  "name": "toko-online",
+  "version": "1.0.0",
+  "description": "Project case fullstack js bootcamp bandung",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jaka Abdul Haris",
+  "license": "ISC"
+}
